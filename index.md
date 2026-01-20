@@ -60,75 +60,66 @@ __Inference Engineer__
 <!---->
 <!--`2024.12-Present`-->
 
-I published [***Comfy-WaveSpeed*** (https://github.com/chengzeyi/Comfy-WaveSpeed)](https://github.com/chengzeyi/Comfy-WaveSpeed), a SOTA inference acceleration solution for ***ComfyUI*** that has received a lot of attention from the community.
-It can achieve a 2x speedup over a wide range of popular image and video generation models, including ***FLUX***, ***LTXV*** and ***HunyuanVideo***.
-And according to the community feedback, it can work on a variety of hardware platforms, including NVIDIA GPUs, Apple MPS and AMD ROCm, as well as on a variety of software platforms, including Linux, Windows and MacOS.
+Published [***Comfy-WaveSpeed***](https://github.com/chengzeyi/Comfy-WaveSpeed), a state-of-the-art inference acceleration solution for ***ComfyUI*** achieving 2x speedup on popular image and video generation models including ***FLUX***, ***LTXV***, and ***HunyuanVideo***. Cross-platform support for NVIDIA GPUs, Apple MPS, AMD ROCm on Linux, Windows, and macOS.
 
 <!--__Inference Engineer__-->
 <!---->
 <!--`2024.8-2024.12`-->
 
-I published [***ParaAttention*** (https://github.com/chengzeyi/ParaAttention)](https://github.com/chengzeyi/ParaAttention), providing efficient ***Context Parallelism*** to speed up DiT image and video generation inference on multiple GPUs, as well as ***First Block Cache***, a novel technique that can speed DiT image and video generation inference by caching with minimal quality loss.
-***ParaAttention*** has been adopted by leading AI inference platforms as a key component in their DiT inference acceleration pipelines.
+Published [***ParaAttention***](https://github.com/chengzeyi/ParaAttention), providing efficient ***Context Parallelism*** for multi-GPU DiT inference acceleration, along with ***First Block Cache***, a novel caching technique that accelerates DiT inference with minimal quality loss. Adopted by leading AI inference platforms as a core component of their acceleration pipelines.
 
 __Software Engineer, SiliconFlow Inc__
 
 `2023.12-2024.8`
 
-I open-sourced the [***stable-fast*** (https://github.com/chengzeyi/stable-fast)](https://github.com/chengzeyi/stable-fast) inference performance optimization framework on ***GitHub***. This project is effective for optimizing ***HuggingFace Diffusers*** and has got over ***1000+ stars***. It is currently under active development and support for other implementations of stable diffusion is coming soon.
+Open-sourced [***stable-fast***](https://github.com/chengzeyi/stable-fast), an inference optimization framework for ***HuggingFace Diffusers*** with ***1000+ stars*** on GitHub.
 
-I also develop and maintain AIGC related inference performance optimization for SiliconFlow, including ***OneDiff*** and other projects, which achieve the best performance over all other implementations.
+Developed and maintained AIGC inference optimizations for SiliconFlow, including ***OneDiff***, achieving best-in-class performance.
 
-Now I am focusing on the development of a new acceleration framework called ***xelerate*** that utilizes the latest NVIDIA CUDA hardware features and PyTorch 2.0 APIs.
-This framework can achieve peak performance on NVIDIA A100, H100 and RTX 4090 GPUs and support a wide range of optimization techniques, including INT8 and FP8 quantization,
-and is expected to work seamlessly with some new models like ***FLUX***, ***CogVideoX*** and ***SD3***.
-On a single NVIDIA H100 GPU, it can reduce the inference time of ***FLUX.1-dev*** for generating a single 1024x1024 image with 28 steps to 2.7 seconds,
-while keeping nearly the same quality and having complete support for dynamic shape and dynamic LoRA switching.
-Even on a single NVIDIA RTX 4090 GPU, it can achieve a inference speed of 6.1s per 1024x1024 image with 28 steps for ***FLUX.1-dev***.
+Built ***xelerate***, an acceleration framework leveraging NVIDIA CUDA hardware features and PyTorch 2.0 APIs. Achieved peak performance on A100, H100, and RTX 4090 GPUs with INT8/FP8 quantization support. Key benchmarks:
+- ***FLUX.1-dev*** on H100: 2.7s per 1024x1024 image (28 steps)
+- ***FLUX.1-dev*** on RTX 4090: 6.1s per 1024x1024 image (28 steps)
+- Full support for dynamic shapes and dynamic LoRA switching
 
-Some key features of ***xelerate*** include:
-
-- __A Fast Flash Attention Implementation__: This is my own implementation of ***Flash Attention*** that can achieve the best performance over all other implementations. It can outperform Dao Lab's original Flash Attention 2 implementation by at most 2x on RTX 4090 and A100.
-- __Full Dynamic Shape Support__: ***xelearte*** can support dynamic shape inference out of the box, and adapt quickly to different input shapes within a few milliseconds, while TensorRT can take more than ten seconds.
-- __Minimum Cold Start Time__: ***xelerate*** can compile a model and start inference within 10 seconds with the help of a efficient cache mechanism, while TensorRT can take more than 30 seconds.
-- __A Complete Set of Quantization Techniques__: ***xelerate*** supports a wide range of quantization techniques, including INT8 and FP8 quantization, and is very easy to use and adjust.
+Key features of ***xelerate***:
+- __Custom Flash Attention__: Up to 2x faster than Dao Lab's Flash Attention 2 on RTX 4090 and A100
+- __Dynamic Shape Support__: Adapts to different input shapes in milliseconds (vs. 10+ seconds for TensorRT)
+- __Fast Cold Start__: Model compilation and inference start within 10 seconds (vs. 30+ seconds for TensorRT)
+- __Quantization__: Comprehensive INT8 and FP8 quantization support
 
 __Technical Expert, Alibaba Group__
 
 `2022-2023.10`
 
-Primarily responsible for inference performance optimization and the development and maintenance of the Quark Intelligent Scanner project, aiming to tap into the expansive camera scanner application market. Our project employs complex deep learning models on cloud servers, distinguishing us from competitors deploying traditional computer vision algorithms locally on smartphones.
+Led inference performance optimization for Quark Intelligent Scanner, a cloud-based document scanning service processing ***10+ million images daily*** with fewer than 200 GPUs.
 
-Our system mainly focuses on optimizing the TorchScript Engine, a promising deployment and optimization technique I identified two years ago. I've implemented GPU-accelerated image preprocessing, post-processing algorithms, and traditional CV image processing algorithms. After continuous enhancements emphasizing operator fusion, graph rewriting, and memory optimization, it has become stable and efficient.
+Built GPU-accelerated image preprocessing pipelines and optimized TorchScript Engine with operator fusion, graph rewriting, and memory optimization.
 
-I developed the ***ICE*** computational acceleration framework, which has significantly accelerated computations for Quark's online inference services. The ICE framework integrates various techniques, such as:
+Developed ***ICE*** acceleration framework for Quark's inference services:
+- __Rapid Tracing__: torch.compile-like JIT tracing for PyTorch 1 via model hooking
+- __TorchScript Graph IR Pass__: Automated operator fusion and replacement
+- __Fusion Operator Library__: High-performance operators using CUDNN, CUBLAS, CUDA C++, and Triton
+- __CUDA Graph Capture__: Optimized BeamSearch and Attention layers
 
-- __Rapid Tracing__: In PyTorch 1, model hooking achieves JIT tracing capabilities similar to torch.compile, converting code needing optimization into TorchScript format efficiently and supporting training acceleration.
-- __TorchScript Graph IR Pass__: Automates computation optimizations, mainly operator fusion and replacement.
-- __High-Performance Fusion Operator Library__: Implemented a series of high-performance fusion operators based on CUDNN, CUBLAS, CUDA C++, and OpenAI Triton. These operators support both forward and backward propagation, thus can also accelerate training.
-- __CUDA Graph Capture, Optimized BeamSearch, Optimized Attention Layer, etc.__, further enhanced performance when combined with the aforementioned technologies.
+Accelerated Transformer OCR, Swin Transformer, NAFNET, Swin2SR, and RealESRGAN models.
 
-Currently, the ICE acceleration framework has significantly accelerated models like Transformer OCR, Swin Transformer, NAFNET, Swin2SR, RealESRGAN, etc.
-
-Recently, we aim to make a business breakthrough in the AIGC domain with the ***Stable Diffusion*** model. This project requires on-the-fly fine-tuning of the base model using personalized sample images uploaded by users, followed by extensive inference predictions. Presently, leveraging the ICE engine, I achieved an inference performance of ***60 it/s*** on NVIDIA A100 for Stable Diffusion v1.5 (512x512 resolution), delivering images in half a second, and it's compatible with ControlNet, LORA, and other...
-
-Given our high expenditure on GPU-intensive computations, cost optimization is crucial. Our system processes over 10 million user-uploaded document images daily with fewer than 200 GPU cards, generating considerable profit. As our competitors continue to struggle with inefficient systems, their users are gradually transitioning to our product.
+Led AIGC initiatives with ***Stable Diffusion***, enabling on-the-fly fine-tuning with user-uploaded images. Achieved ***60 it/s*** inference on NVIDIA A100 for Stable Diffusion v1.5 (512x512), delivering images in under a second with full ControlNet and LoRA compatibility.
 
 __Senior Software Engineer, Alibaba Group__
 
 `2021-2022`
 
-I was responsible for developing and maintaining our OCR and image document format restoration services. I designed an XML document format protocol for the Quark browser and, utilizing my understanding of graph algorithms from discrete mathematics, researched an algorithm to restore EXCEL table structures for our WORD/EXCEL structural restoration product. Though this system is still under active development, I transitioned roles to focus on other priorities.
+Developed OCR and document format restoration services for Quark browser. Designed XML document protocol and implemented graph-based algorithm for EXCEL table structure restoration.
 
-Additionally, I developed a framework to integrate models into the Quark browser. This framework allows developers to write model invocation code once and deploy it across multiple platforms like cloud servers, desktops, and smartphones, each interfacing with distinct inference acceleration frameworks. This framework has facilitated over half of the client-side ML projects in the Quark browser.
+Built cross-platform ML model deployment framework supporting cloud, desktop, and mobile with unified APIs. Framework powers over half of Quark's client-side ML projects.
 
 __Software Engineer, Alibaba Group__
 
 `2020-2021`
 
-I inherited a poorly maintained GPU-based video encoding and decoding framework. Recognizing its limitations, I decided to completely rewrite the system. By studying NVIDIA CUDA programming documentation and prominent video codec frameworks like FFmpeg, I redesigned the API and data structures, rigorously testing for performance and format compatibility. This system efficiently utilizes NVCODEC for acceleration and switches to other implementations when compatibility is required. The project's rewrite pr...
+Rewrote a GPU-based video encoding/decoding framework from scratch. Redesigned APIs and data structures based on NVIDIA CUDA documentation and FFmpeg patterns, with rigorous performance and compatibility testing. The system uses NVCODEC for acceleration with fallback for compatibility, processing over 20 million short videos daily.
 
-Additionally, I wrote native C++ code, invoking MNN to deploy compact ML models and implemented CV algorithms in the Quark browser.
+Deployed compact ML models via MNN and implemented CV algorithms in native C++ for Quark browser.
 
 __Backend Software Development Intern, ByteDance__
 
@@ -152,9 +143,7 @@ __GRE Exam__: Verbal Reasoning 154, Quantitative Reasoning 169, Analytical Writi
 
 __Technologies: Dynamic Caching, PyTorch, ComfyUI__
 
-Open-sourced on GitHub with over ***500+ stars***.
-
-[***Comfy-WaveSpeed*** (https://github.com/chengzeyi/Comfy-WaveSpeed)](https://github.com/chengzeyi/Comfy-WaveSpeed)
+***500+ stars*** on GitHub. [View Project](https://github.com/chengzeyi/Comfy-WaveSpeed)
 
 ### WaveSpeedAI: Multimodal AI Acceleration Platform
 
@@ -162,77 +151,67 @@ __Technologies: CUDA, PyTorch, Distributed Systems, Cloud Infrastructure__
 
 Co-founded and built WaveSpeedAI, a global platform providing unified API access to 700+ AI models with industry-leading inference speeds. The platform powers real-time image generation and video generation with up to 6x faster inference.
 
-[***WaveSpeedAI*** (https://wavespeed.ai)](https://wavespeed.ai)
+[View Platform](https://wavespeed.ai)
 
 ### ParaAttention (open source): Efficient Context Parallelism for DiT Inference
 
 __Technologies: Attention Mechanism, PyTorch, Distributed Computing__
 
-Open-sourced on GitHub with over ***100+ stars***.
-
-[***ParaAttention*** (https://github.com/chengzeyi/ParaAttention)](https://github.com/chengzeyi/ParaAttention)
+***100+ stars*** on GitHub. [View Project](https://github.com/chengzeyi/ParaAttention)
 
 ### piflux (closed source): Accelerating FLUX Inference with Multiple GPUs.
 
 __Technologies: CUDA, PyTorch, PyTorch Distributed, Diffusion Transformer__
 
-***piflux*** is one of the fastest FLUX inference framework with multiple GPUs.
-It is not open-sourced yet. It is designed to work with ***xelerate*** seamlessly with very fine-grained sequence-level parallelism and attention KV cache strategies.
-On 2 NVIDIA H100 GPUs, it can reduce the inference time of ***Flux.1-dev*** for generating a single 1024x1024 image with 28 steps to 1.7 seconds, while keeping nearly the same quality.
+Multi-GPU FLUX inference framework with fine-grained sequence-level parallelism and attention KV cache strategies. Integrates seamlessly with ***xelerate***. Achieves ***1.7s*** per 1024x1024 image (28 steps) on 2x H100 GPUs with near-original quality.
 
 ### xelerate (closed source): Best PyTorch Inference Optimization Framework
 
 __Technologies: C++, CUDA, PyTorch, OpenAI Triton, TorchDynamo, TorchInductor__
 
-***xelerate*** is the the fastest inference performance optimization framework for deep learning models.
-It is not open-sourced yet. But it achieves the best performance over all other implementations.
-It is on par with NVIDIA TensorRT 10, but with more flexibility and compatibility with PyTorch 2.0 APIs, and can achieve peak performance on NVIDIA A100, H100 and RTX 4090 GPUs.
-It also supports a wide range of quantization techniques, including INT8 and FP8 quantization, and is expected to work seamlessly with some new models like ***FLUX*** and ***CogVideoX***.
+High-performance inference optimization framework matching TensorRT 10 performance with superior PyTorch 2.0 compatibility. Achieves peak performance on A100, H100, and RTX 4090 GPUs with INT8/FP8 quantization. Powers ***FLUX*** and ***CogVideoX*** inference.
 
 ### stable-fast (open source): A Lightweight Inference Performance Optimization Framework for Stable Diffusion
 
 __Technologies: C++, CUDA, PyTorch, OpenAI Triton__
 
-Open-sourced on GitHub with over ***1000+ stars***.
-
-[***stable-fast*** (https://github.com/chengzeyi/stable-fast)](https://github.com/chengzeyi/stable-fast)
+***1000+ stars*** on GitHub. [View Project](https://github.com/chengzeyi/stable-fast)
 
 ### ICE Deep Learning Computational Acceleration Framework
 
 __Technologies: C++, CUDA, PyTorch, OpenAI Triton__
 
-I spearheaded its development and design. This acceleration framework contains basic operator extensions, all of which include backward propagation and reduce GPU memory requirements during training through a certain level of Recompute:
+Internal acceleration framework with operator extensions supporting both forward and backward propagation:
+- CUDNN Convolution Fusion (Conv + Bias + Addition + Activation)
+- CUBLASLT GEMM Fusion with Channels Last propagation
+- Fused Normalization with Pointwise fusion
+- Triton-based PyTorch CUDA Op reimplementations
 
-- CUDNN Convolution Fusion Extension: Developed based on CUDNN V7 API, supports multiple Pattern Fusions like Conv + Bias + Addition + Activation.
-- GEMM Extension: Developed based on CUBLASLT, supports multiple Pattern Fusions like GEMM + Bias + Addition + Activation, and preserves Memory Format during computation, facilitating Channels Last Propagation.
-- Fused Normalization Extension: Developed using CUDA C++, supporting Norm and subsequent Pointwise computation fusion.
-- Triton Op: Reimplemented PyTorch CUDA Op based on Triton, resulting in performance improvements.
-
-This acceleration framework supports multiple frontends (TorchDynamo, TorchScript, FuncTorch) and is highly compatible with mainstream algorithm frameworks (Huggingface Transformers, Diffusers, etc.).
+Compatible with TorchDynamo, TorchScript, FuncTorch, and mainstream frameworks (Transformers, Diffusers).
 
 ### NVJpeg Image Encoding Extension
 
 __Technologies: C++, CUDA, PyTorch__
 
-Fully compatible with PyTorch, this extension supports various sampling formats and boasts rapid speeds. On an RTX 3090Ti, it can encode over 1000 images per second.
+PyTorch-compatible GPU image encoding extension. Encodes 1000+ images per second on RTX 3090Ti with support for various sampling formats.
 
 ### OCR-Based EXCEL Table Structure Restoration Algorithm
 
 __Technologies: Python, NumPy__
 
-This algorithm can restore intricate table structures from discrete line detection results. It's employed in multiple online services of the Quark browser, such as Quark File Scanner and Quark Table Restoration.
+Restores complex table structures from discrete line detection results. Powers Quark File Scanner and Quark Table Restoration services.
 
 ### Fixed-Size Memory Allocation Library Based on Multiway Trees
 
 __Technologies: C++, Linux__
 
-Designed with ***__builtin_ctzll***, this multiway tree data structure allows for quick memory allocation/release. In some scenarios, it's faster than TCMalloc, with minimal fragmentation, and is integrated into our stream processing framework.
+High-performance memory allocator using multiway tree data structures with `__builtin_ctzll`. Outperforms TCMalloc in certain scenarios with minimal fragmentation. Integrated into production stream processing framework.
 
 ### Performance Optimization of G'MIC (CImg) Image Processing Library
 
 __Technologies: C++, Linux, OpenMP__
 
-G'MIC is one of the most popular digital image processing frameworks among GNU users. Through OpenMP acceleration and template programming, I achieved a 4-10x performance boost in all its image processing algorithms.
+Achieved 4-10x performance improvement across all image processing algorithms in G'MIC, a popular GNU image processing framework, using OpenMP acceleration and template programming.
 
 <!-- ### Footer
 Last updated: 2023.9 -->
