@@ -4,7 +4,7 @@ title: Cheng Zeyi's CV
 ---
 # Cheng Zeyi (成泽毅)
 
-__Software Engineer__
+__Founder & CEO, WaveSpeedAI__
 
 <div id="webaddress">
 <a href="ichengzeyi@gmail.com">ichengzeyi@gmail.com</a>
@@ -25,7 +25,7 @@ Majored in Computer Science with a keen interest in compilers and computer archi
 
 ## Current Role
 
-__Building the Fastest Inference Performance Optimization Framework for Generative AI Models__
+__Founder & CEO of WaveSpeedAI — Building the Fastest Infrastructure for AI Image and Video Generation__
 
 ### Expertise
 
@@ -39,9 +39,22 @@ __GPU Video Processing__
 
 ## Work Experience
 
+__Founder & CEO, WaveSpeedAI__
+
+`2025.3-Present`
+
+Co-founded [***WaveSpeedAI***](https://wavespeed.ai), a Singapore-based company building the core acceleration engine for the multimodal AI era.
+
+WaveSpeedAI aggregates 700+ advanced AI models for image, video, and audio generation, making them faster, more efficient, and accessible. The platform delivers up to 6x faster inference and reduces compute costs by up to 67% compared to traditional cloud solutions.
+
+Key achievements:
+- Became an official ***Hugging Face Inference Provider***, enabling developers worldwide to use WaveSpeedAI as their acceleration engine
+- Gained trust of developers and companies globally within months of launch
+- Platform powers real-time FLUX image generation and video generation with industry-leading speeds
+
 __Inference Engineer__
 
-`2024.8-Present`
+`2024.8-2025.3`
 
 <!--__T11 Engineer, Tencent__-->
 <!---->
@@ -56,10 +69,7 @@ And according to the community feedback, it can work on a variety of hardware pl
 <!--`2024.8-2024.12`-->
 
 I published [***ParaAttention*** (https://github.com/chengzeyi/ParaAttention)](https://github.com/chengzeyi/ParaAttention), providing efficient ***Context Parallelism*** to speed up DiT image and video generation inference on multiple GPUs, as well as ***First Block Cache***, a novel technique that can speed DiT image and video generation inference by caching with minimal quality loss.
-***ParaAttention*** has been adopted by [***fal.ai***](https://fal.ai) and [***Replicate***](https://replicate.com) as a key component in their DiT inference acceleration pipelines.
-
-I also kept developing ***xelerate***, a non-open-source inference performance optimization framework that provides day 0 support for ***FLUX*** inference acceleration with quantization, compilation and dynamic LoRA switching.
-It has been adopted by [***fal.ai***](https://fal.ai) to provide the world's fastest ***FLUX*** and ***HunyuanVideo*** inference acceleration service.
+***ParaAttention*** has been adopted by leading AI inference platforms as a key component in their DiT inference acceleration pipelines.
 
 __Software Engineer, SiliconFlow Inc__
 
@@ -145,6 +155,14 @@ __Technologies: Dynamic Caching, PyTorch, ComfyUI__
 Open-sourced on GitHub with over ***500+ stars***.
 
 [***Comfy-WaveSpeed*** (https://github.com/chengzeyi/Comfy-WaveSpeed)](https://github.com/chengzeyi/Comfy-WaveSpeed)
+
+### WaveSpeedAI: Multimodal AI Acceleration Platform
+
+__Technologies: CUDA, PyTorch, Distributed Systems, Cloud Infrastructure__
+
+Co-founded and built WaveSpeedAI, a global platform providing unified API access to 700+ AI models with industry-leading inference speeds. The platform powers real-time image generation and video generation with up to 6x faster inference.
+
+[***WaveSpeedAI*** (https://wavespeed.ai)](https://wavespeed.ai)
 
 ### ParaAttention (open source): Efficient Context Parallelism for DiT Inference
 
