@@ -205,7 +205,7 @@ Restores complex table structures from discrete line detection results. Powers Q
 
 __Technologies: C++, Linux__
 
-High-performance memory allocator using multiway tree data structures with `__builtin_ctzll`. Outperforms TCMalloc in certain scenarios with minimal fragmentation. Integrated into production stream processing framework.
+High-performance memory allocator using multiway tree data structures with ***__builtin_ctzll***. Outperforms TCMalloc in certain scenarios with minimal fragmentation. Integrated into production stream processing framework.
 
 ### Performance Optimization of G'MIC (CImg) Image Processing Library
 
