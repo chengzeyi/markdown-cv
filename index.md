@@ -43,7 +43,7 @@ __Founder & CEO, WaveSpeedAI__
 
 `2025.3-Present`
 
-Co-founded [***WaveSpeedAI***](https://wavespeed.ai), a Singapore-based company building the core acceleration engine for the multimodal AI era.
+Founded [***WaveSpeedAI***](https://wavespeed.ai), a Singapore-based company building the core acceleration engine for the multimodal AI era.
 
 WaveSpeedAI aggregates 700+ advanced AI models for image, video, and audio generation, making them faster, more efficient, and accessible. The platform delivers up to 6x faster inference and reduces compute costs by up to 67% compared to traditional cloud solutions.
 
@@ -149,7 +149,7 @@ __Technologies: Dynamic Caching, PyTorch, ComfyUI__
 
 __Technologies: CUDA, PyTorch, Distributed Systems, Cloud Infrastructure__
 
-Co-founded and built WaveSpeedAI, a global platform providing unified API access to 700+ AI models with industry-leading inference speeds. The platform powers real-time image generation and video generation with up to 6x faster inference.
+Founded and built WaveSpeedAI, a global platform providing unified API access to 700+ AI models with industry-leading inference speeds. The platform powers real-time image generation and video generation with up to 6x faster inference.
 
 [View Platform](https://wavespeed.ai)
 
